@@ -1,0 +1,100 @@
+:root{
+    /* CSS HEX */
+--chocolate-cosmos: #3e000cff;
+--imperial-red: #fb4b4eff;
+--fairy-tale: #ffcbddff;
+--claret: #7c0b2bff;
+--engineering-orange: #d10000ff;
+}
+
+*{
+    font-family:Arial, Sans-serif;
+    margin:0;
+    padding:0;
+}
+body{    
+    background-color:var(--imperial-red);    
+    top:0;    
+}
+
+header{
+    display:flex; 
+    justify-content:space-between;
+    align-items:center;  
+    color:var(--fairy-tale);
+    background-color: var(--chocolate-cosmos);
+    height:60px;
+    padding:15px;
+}
+h2,i{
+    display:flex;
+    align-items:center;
+    margin:0 0.5rem 0 0;
+}
+
+#search-container{
+    padding:5px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end; 
+    width:50%;   
+}
+label{
+    color:var(--fairy-tale);
+    font-weight:700;
+}
+.input-wrapper{    
+    display:flex-wrap;
+    align-items:center; 
+    justify-content:center;
+}
+
+input{
+    border-radius:5px;
+    margin:0 0.5rem;
+    padding:0.3rem;
+    font-weight:bold;
+    color:var(--chocolate-cosmos);
+}
+
+#movie-year{
+        width:45px;
+}
+
+@media (max-width: 450px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+        padding: 5px;
+    }
+      #search-container{
+      width: 85%;
+      }  
+}
+
+@media (max-width: 600px) {
+   #movie-name {
+        width: 85%;
+    }    
+}
+@media (min-width: 601px) {
+    #movie-name {      
+        width: 240px;    
+    }
+}
+
+@media (min-width: 901px) {
+    #movie-name {      
+        width: 440px;    
+    }
+}
+
+
+#btn-search{    
+    background-color:var(--chocolate-cosmos);
+    border:none;
+    color:var(--fairy-tale); 
+    padding:0.5rem;
+    margin:10px 0px 0px 0px   
+}
