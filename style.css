@@ -1,0 +1,71 @@
+:root{
+    /* CSS HEX */
+--chocolate-cosmos: #3e000cff;
+--imperial-red: #fb4b4eff;
+--fairy-tale: #ffcbddff;
+--claret: #7c0b2bff;
+--engineering-orange: #d10000ff;
+}
+
+*{
+    font-family:Arial, Sans-serif;
+    margin:0;
+    padding:0;
+}
+body{    
+    background-color:var(--imperial-red);    
+    top:0;    
+}
+
+header{
+    display:flex; 
+    justify-content:space-between;
+    align-items:center;  
+    color:var(--fairy-tale);
+    background-color: var(--chocolate-cosmos);
+    height:60px;
+    padding:15px;
+}
+h2,i{
+    display:flex-wrap;
+    align-items:center;   
+}
+
+#search-container{
+    padding:5px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end; 
+    width:50%;   
+}
+label{
+    color:var(--fairy-tale);
+    font-weight:700;
+}
+.input-wrapper{    
+    display:flex-wrap;
+    align-items:center; 
+    justify-content:center;
+}
+
+input{
+    border-radius:5px;
+    margin:0 0.5rem;
+    padding:0.3rem;
+    font-weight:bold;
+    color:var(--chocolate-cosmos);
+}
+#movie-name{
+    /* width:0 80%; */
+}
+#movie-year{
+    /* width:50% */
+}
+#btn-search{    
+    background-color:var(--chocolate-cosmos);
+    border:none;
+    color:var(--fairy-tale);   
+    /* all:unset; */
+}
+
+
