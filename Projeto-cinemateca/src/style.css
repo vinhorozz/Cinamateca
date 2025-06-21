@@ -40,6 +40,7 @@ h2,i{
     width:50%;   
 }
 label{
+    margin:0px 10px 0;
     color:var(--fairy-tale);
     font-weight:700;
 }
@@ -79,15 +80,22 @@ input{
     }    
 }
 @media (min-width: 601px) {
+    #search-container{
+      width: 85%;
+      }
     #movie-name {      
         width: 240px;    
     }
+ 
 }
 
 @media (min-width: 901px) {
+    #search-container{
+        width: 85%;
+    }    
     #movie-name {      
         width: 440px;    
-    }
+    }    
 }
 
 
