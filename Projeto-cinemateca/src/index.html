@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./modal.css">
+    <link rel="stylesheet" href="./notie-master/dist/notie.min.css"
 </head>
 <body>
     <header>
@@ -29,12 +30,11 @@
     <main>
         <h1>Adicione os filmes à sua playlist</h1>
         <section class="movie-list"></section>
-        <article id="modal-overlay">
+
+    <article id="modal-overlay" class="overlay">
             <section id="modal-background"></section>
-            <section id="modal-container">
-               
-                    <h2 id="modal-title">"My Girl"</h2>
-               
+            <section id="modal-container">               
+                <h2 id="modal-title">"My Girl"</h2>
                 <section id="modal-body">
                     <img id="poster" src="https://m.media-amazon.com/images/M/MV5BNmI5M2EzZDUtZTBkZS00YWFmLWFhZTMtNjc3YTllZDBhODQ4XkEyXkFqcGc@._V1_SX300.jpg" alt="Poster do filme" >
                 
@@ -55,8 +55,11 @@
                 <section id="modal-footer"></section>
                 <button id="add-to-list">Adicionar à lista</button>
             </section>                    
-        </article>            
+        </article>
     </main>
         <script src="script.js"></script>
+        <script src="modal.js"></script>
+        <script src="keySample.js"></script>
+        <script src="./notie-master/dist/notie.min.js"></script>
 </body>
 </html>
