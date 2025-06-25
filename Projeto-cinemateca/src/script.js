@@ -5,6 +5,7 @@ const movieList=document.getElementById("movie-list");
 const overlay=document.getElementById("modal-overlay");
 
 async function searchBtnHandler() {
+    
     try {
         const t=nameInput.value?
                 "&t="+nameInput.value.split(" ").join("+"):
@@ -24,6 +25,7 @@ async function searchBtnHandler() {
         if (data.Error){
             throw new Error("Filme não encontrado")
         };
+        createModal(data);
         overlay.classList.add('open');
     } catch (error) {
         console.log(error.message)
