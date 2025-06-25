@@ -21,11 +21,15 @@ async function searchBtnHandler() {
         const response= await fetch(url);
         const data= await response.json();
         console.log(data);
+        if (data.Error){
+            throw new Error("Filme não encontrado")
+        };
         overlay.classList.add('open');
     } catch (error) {
         console.log(error.message)
+        notie.alert({ type: "error", text: error.message })
+      
     }
-   
 }
 searchBtn.addEventListener("click",searchBtnHandler)
 
