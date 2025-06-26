@@ -1,13 +1,12 @@
 const background=document.getElementById("modal-overlay");
-const container=document.getElementById("modal-container")
-
-function backgroundClickHandler(){
-        background.classList.remove("open"); 
-};
+const container=document.getElementById("modal-container");
+let currentMovie={};
 
 function createModal(data) {
+    currentMovie=data;
+
         container.innerHTML=`                               
-                <h2 id="modal-title">${data.Title}" - " ${data.Year}</h2>
+                <h2 id="modal-title">${data.Title} -  ${data.Year}</h2>
                 <section id="modal-body">
                     <img id="poster" src=${data.Poster} alt="Poster do filme" >
                 
@@ -26,8 +25,21 @@ function createModal(data) {
                     </div>
                 </section>
                 <section id="modal-footer">
-                        <button id="add-to-list">Adicionar à lista</button>
+                        <button id="add-to-list" onClick="addCurrentToList()">Adicionar à lista</button>
                 </section>`
 }
 
-background.addEventListener("click",backgroundClickHandler);
+background.addEventListener("click",backgroundClose);
+
+function addCurrentToList() {
+    addToMyList(currentMovie);
+    updateUI(currentMovie);
+    backgroundClose();
+    nameInput.value="";
+    nameInput.focus();
+}
+
+function backgroundClose(){
+        background.classList.remove("open"); 
+};
+

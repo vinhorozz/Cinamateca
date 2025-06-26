@@ -103,7 +103,6 @@ button{
     }    
 }
 
-
 #btn-search{    
     background-color:var(--chocolate-cosmos);
     border:none;
@@ -111,6 +110,43 @@ button{
     padding:0.5rem;
     margin:10px 0px 0px 0px   
 }
+
+#movie-list {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+}
+#movie-list article{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+#movie-list article>img{
+    border-radius:5px;
+    margin-bottom: .5rem;
+    height:421px;
+    width:300px;
+}
+
+#remove{    
+    width:100%;    
+    background-color: var(--imperial-red);
+    border:1px solid var(--chocolate-cosmos);
+    border-radius:5px;
+    padding:5px 15px;
+    display:flex;
+    aligh-items:center;
+    justify-content:center;    
+    box-shadow:1px 1px 10px var(--chocolate-cosmos);
+    font-weight:bold;
+    color:var(--chocolate-cosmos);      
+}
+#remove:hover{
+    background-color:var(--claret);
+    color:#fff
+}
+
 main{
     display:flex-wrap;
     flex-direction: column;

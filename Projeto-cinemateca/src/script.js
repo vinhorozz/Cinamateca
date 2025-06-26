@@ -3,9 +3,9 @@ const yearInput=document.getElementById("movie-year");
 const searchBtn=document.getElementById("btn-search");
 const movieList=document.getElementById("movie-list");
 const overlay=document.getElementById("modal-overlay");
+let myList=[];
 
-async function searchBtnHandler() {
-    
+async function searchBtnHandler() {    
     try {
         const t=nameInput.value?
                 "&t="+nameInput.value.split(" ").join("+"):
@@ -33,7 +33,20 @@ async function searchBtnHandler() {
       
     }
 }
-searchBtn.addEventListener("click",searchBtnHandler)
+searchBtn.addEventListener("click",searchBtnHandler);
+
+function addToMyList(data) {
+    myList.push(data);
+}
+
+
+function updateUI(data){
+    movieList.innerHTML+=`
+             <article>
+                <img src=${data.Poster} alt="Poster do filme ${data.Title}">
+                <button id="remove"><i class="bi bi-trash"></i>Remover</button>
+            </article>`
+}
 
 //  Ao aninhar operadores ternários, é recomendado usar parênteses para garantir a ordem de avaliação correta e evitar ambiguidades.
 
