@@ -25,6 +25,7 @@ async function searchBtnHandler() {
         if (data.Error){
             throw new Error("Filme não encontrado")
         };
+
         createModal(data);
         overlay.classList.add('open');
     } catch (error) {
@@ -37,6 +38,11 @@ searchBtn.addEventListener("click",searchBtnHandler);
 
 function addToMyList(data) {
     myList.push(data);
+}
+
+
+function isAlreadyListed(id) {
+    return Boolean(myList.find((data)=>{return data.imdbID===id}));
 }
 
 
@@ -54,3 +60,5 @@ function updateUI(data){
 
 // para realizarmos uma requisição à um servidor, é preciso entender que haverá uma ordem de resposta de solicitações, por isso devemos adicionar a expressão "async" antes da função e a expressão "await" antes do método fetch()
 // O fetch não é um método de um objeto específico, mas sim uma função global do JavaScript para fazer requisições HTTP.
+
+

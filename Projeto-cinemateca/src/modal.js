@@ -32,11 +32,15 @@ function createModal(data) {
 background.addEventListener("click",backgroundClose);
 
 function addCurrentToList() {
-    addToMyList(currentMovie);
-    updateUI(currentMovie);
-    backgroundClose();
-    nameInput.value="";
-    nameInput.focus();
+    if (isAlreadyListed(currentMovie.imdbID)){
+        notie.alert({type:3,text:"Já estava na sua lista"});
+    }else{
+        addToMyList(currentMovie);
+        updateUI(currentMovie);
+        backgroundClose();
+        nameInput.value="";        
+    }
+    nameInput.focus(); 
 }
 
 function backgroundClose(){
