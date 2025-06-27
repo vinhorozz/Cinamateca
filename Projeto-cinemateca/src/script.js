@@ -3,7 +3,7 @@ const yearInput=document.getElementById("movie-year");
 const searchBtn=document.getElementById("btn-search");
 const movieList=document.getElementById("movie-list");
 const overlay=document.getElementById("modal-overlay");
-let myList=JSON.parse(localStorage.getItem('movielist'))??[];//operador de co-licenciatura
+let myList=JSON.parse(localStorage.getItem('movielist'))??[];//operador de coalicencia nula
 
 async function searchBtnHandler() {    
     try {
@@ -77,5 +77,5 @@ for (const movieInfo of myList) {
 
 
 //Relembrei que filter()"predicate" que avalia uma condição para cada elemento da lista, que  cria uma nova lista removendo o o elemento indicado pela chave;
-// 
+// Aprendi sobre O operador de coalescência nula (??) em JavaScript retorna o valor do lado direito apenas se o valor do lado esquerdo for null ou undefined. Ele é útil para definir valores padrão sem sobrescrever valores considerados "falsy" como 0, '' (string vazia) ou false.
 
