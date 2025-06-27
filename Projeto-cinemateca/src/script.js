@@ -3,7 +3,7 @@ const yearInput=document.getElementById("movie-year");
 const searchBtn=document.getElementById("btn-search");
 const movieList=document.getElementById("movie-list");
 const overlay=document.getElementById("modal-overlay");
-let myList=[];
+let myList=JSON.parse(localStorage.getItem('movielist'))??[];//operador de co-licenciatura
 
 async function searchBtnHandler() {    
     try {
@@ -60,9 +60,14 @@ function updateUI(data){
 }
 
 function updateLocalStore() {
-    localStorage.setItem('movelist',JSON.stringify(myList))
-    
+    localStorage.setItem('movielist',JSON.stringify(myList))    
 }
+
+
+for (const movieInfo of myList) {
+    updateUI(movieInfo);    
+}
+
 //  Ao aninhar operadores ternários, é recomendado usar parênteses para garantir a ordem de avaliação correta e evitar ambiguidades.
 
 // Variáveis declaradas em outros arquivos .js, de forma global, podem ser chamadas nos arquivos que serão abertos  posteriormente
