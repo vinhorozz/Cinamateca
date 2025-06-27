@@ -38,22 +38,31 @@ searchBtn.addEventListener("click",searchBtnHandler);
 
 function addToMyList(data) {
     myList.push(data);
-}
 
+}
 
 function isAlreadyListed(id) {
     return Boolean(myList.find((data)=>{return data.imdbID===id}));
 }
 
+function removeFromMyList(id){
+   myList = myList.filter(movieID=> movieID.imdbID !==id);//remoção objeto
+   document.getElementById(`${id}`).remove();//remoção do visual
+   updateLocalStore();
+}
 
 function updateUI(data){
     movieList.innerHTML+=`
-             <article>
+             <article id="${data.imdbID}">
                 <img src=${data.Poster} alt="Poster do filme ${data.Title}">
-                <button id="remove"><i class="bi bi-trash"></i>Remover</button>
+                <button id="remove" onClick="removeFromMyList('${data.imdbID}')"><i class="bi bi-trash"></i>Remover</button>
             </article>`
 }
 
+function updateLocalStore() {
+    localStorage.setItem('movelist',JSON.stringify(myList))
+    
+}
 //  Ao aninhar operadores ternários, é recomendado usar parênteses para garantir a ordem de avaliação correta e evitar ambiguidades.
 
 // Variáveis declaradas em outros arquivos .js, de forma global, podem ser chamadas nos arquivos que serão abertos  posteriormente
@@ -61,4 +70,7 @@ function updateUI(data){
 // para realizarmos uma requisição à um servidor, é preciso entender que haverá uma ordem de resposta de solicitações, por isso devemos adicionar a expressão "async" antes da função e a expressão "await" antes do método fetch()
 // O fetch não é um método de um objeto específico, mas sim uma função global do JavaScript para fazer requisições HTTP.
 
+
+//Relembrei que filter()"predicate" que avalia uma condição para cada elemento da lista, que  cria uma nova lista removendo o o elemento indicado pela chave;
+// 
 

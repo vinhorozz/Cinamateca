@@ -38,6 +38,7 @@ function addCurrentToList() {
         addToMyList(currentMovie);
         updateUI(currentMovie);
         backgroundClose();
+        updateLocalStore();
         nameInput.value="";        
     }
     nameInput.focus(); 
