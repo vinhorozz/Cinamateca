@@ -27,10 +27,10 @@ function createModal(data) {
                 <section id="modal-footer">
                         <button id="add-to-list" onClick="addCurrentToList()">Adicionar à lista</button>
                 </section>`
-    const btn = document.getElementById("add-to-list");
+    // const btn = document.getElementById("add-to-list");
     setTimeout(() => {
-        btn.focus();
-    }, 3);
+       document.getElementById("add-to-list").focus();
+    }, 5);
             
             }
 
