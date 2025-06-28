@@ -4,7 +4,7 @@ let currentMovie={};
 
 function createModal(data) {
     currentMovie=data;
-
+        
         container.innerHTML=`                               
                 <h2 id="modal-title">${data.Title} -  ${data.Year}</h2>
                 <section id="modal-body">
@@ -27,7 +27,12 @@ function createModal(data) {
                 <section id="modal-footer">
                         <button id="add-to-list" onClick="addCurrentToList()">Adicionar à lista</button>
                 </section>`
-}
+    const btn = document.getElementById("add-to-list");
+    setTimeout(() => {
+        btn.focus();
+    }, 3);
+            
+            }
 
 background.addEventListener("click",backgroundClose);
 

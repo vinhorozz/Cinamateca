@@ -38,29 +38,36 @@ searchBtn.addEventListener("click",searchBtnHandler);
 
 function addToMyList(data) {
     myList.push(data);
-
 }
 
 function isAlreadyListed(id) {
     return Boolean(myList.find((data)=>{return data.imdbID===id}));
 }
 
-function removeFromMyList(id){
-   myList = myList.filter(movieID=> movieID.imdbID !==id);//remoção objeto
-   document.getElementById(`${id}`).remove();//remoção do visual
-   updateLocalStore();
+function removeFromMyList(id,nome){
+
+    notie.confirm({        
+        text:`Deseja realmente remover\n\ ${nome}?`,
+        submitText:"Sim",
+        cancelText:"Não",
+        position:"top",
+        submitCallback:()=>{
+            myList = myList.filter(movieID=> movieID.imdbID !==id);//remoção objeto
+            document.getElementById(`${id}`).remove();//remoção do visual
+            updateLocalStore();
+        }})
 }
 
 function updateUI(data){
     movieList.innerHTML+=`
              <article id="${data.imdbID}">
                 <img src=${data.Poster} alt="Poster do filme ${data.Title}">
-                <button id="remove" onClick="removeFromMyList('${data.imdbID}')"><i class="bi bi-trash"></i>Remover</button>
+                <button id="remove" onClick="removeFromMyList('${data.imdbID}','${data.Title}')"><i class="bi bi-trash"></i>Remover</button>
             </article>`
 }
 
 function updateLocalStore() {
-    localStorage.setItem('movielist',JSON.stringify(myList))    
+    localStorage.setItem('movielist',JSON.stringify(myList));    
 }
 
 
