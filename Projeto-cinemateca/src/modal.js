@@ -3,6 +3,9 @@ const container=document.getElementById("modal-container");
 let currentMovie={};
 
 function createModal(data) {
+    container.style.width="90vw";
+    container.style.maxWidth="500px";  
+    
     currentMovie=data;
         
         container.innerHTML=`                               

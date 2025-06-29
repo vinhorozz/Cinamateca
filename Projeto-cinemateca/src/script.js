@@ -3,6 +3,7 @@ const yearInput=document.getElementById("movie-year");
 const searchBtn=document.getElementById("btn-search");
 const movieList=document.getElementById("movie-list");
 const overlay=document.getElementById("modal-overlay");
+
 let myList=JSON.parse(localStorage.getItem('movielist'))??[];//operador de coalicencia nula
 
 async function searchBtnHandler() {    
@@ -60,11 +61,28 @@ function removeFromMyList(id,nome){
 
 function updateUI(data){
     movieList.innerHTML+=`
-             <article id="${data.imdbID}">
-                <img src=${data.Poster} alt="Poster do filme ${data.Title}">
-                <button id="remove" onClick="removeFromMyList('${data.imdbID}','${data.Title}')"><i class="bi bi-trash"></i>Remover</button>
-            </article>`
+        <article id="${data.imdbID}">
+            <img id="poster" src=${data.Poster} alt="Poster do filme ${data.Title}">
+            <button id="remove" onClick="removeFromMyList('${data.imdbID}','${data.Title}')"><i class="bi bi-trash"></i>Remover</button>
+        </article>`
 }
+
+movieList.addEventListener('dblclick', function(event) {
+ 
+    const img = event.target.closest('img#poster');
+ 
+    if (img) {
+        const article = img.closest('article');
+        if (article) {
+            const movieId = article.id;
+            const movieData = myList.find(movie => movie.imdbID === movieId);
+            if (movieData) {
+                infoModal(movieData);
+                overlay.classList.add('open');
+            }
+        }
+    }
+});
 
 function updateLocalStore() {
     localStorage.setItem('movielist',JSON.stringify(myList));    
@@ -74,6 +92,8 @@ function updateLocalStore() {
 for (const movieInfo of myList) {
     updateUI(movieInfo);    
 }
+
+ 
 
 //  Ao aninhar operadores ternários, é recomendado usar parênteses para garantir a ordem de avaliação correta e evitar ambiguidades.
 
