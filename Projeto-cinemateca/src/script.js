@@ -67,7 +67,7 @@ function updateUI(data){
         </article>`
 }
 
-movieList.addEventListener('dblclick', function(event) {
+movieList.addEventListener('click', function(event) {
  
     const img = event.target.closest('img#poster');
  
