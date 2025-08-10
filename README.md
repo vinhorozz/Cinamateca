@@ -1,4 +1,4 @@
-# Cinamateca
+# Cinemateca
 ## Sobre o Projeto
 
 Este projeto é uma aplicação de gerenciamento de filmes chamada **Cinamateca**, desenvolvida em **JavaScript** como parte do módulo de estudos em programação. O objetivo principal foi aplicar conceitos de orientação a objetos, manipulação de arquivos e boas práticas de desenvolvimento.
